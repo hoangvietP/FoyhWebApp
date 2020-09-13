@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+</head>
+<body>
+<button onclick="myFunction()">Nhấn vào đây</button>
+
+<p id="demo"></p>
+
+<p>Nhấn vào nút bên trên để chạy hàm in ra chữ "Xin chào" trong thẻ p với id="demo".</p>
+
+
+</body>
+</html>
+
+<script>
+function myFunction() {
+        const xhr = new XMLHttpRequest();
+        var token="";
+        xhr.onload = () => {
+
+            // print JSON response
+            if (xhr.status >= 200 && xhr.status < 300) {
+                // parse JSON
+                const response = JSON.parse(xhr.responseText);
+                console.log(response.accessToken);
+                token=response.accessToken;
+
+            }
+        };
+        const json = {
+            "username": "loda",
+            "password": "loda"
+        };
+
+        // open request
+        xhr.open('POST', '/api/login');
+
+        // set `Content-Type` header
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('Authorization', token);
+
+        // send rquest with JSON payload
+        xhr.send(JSON.stringify(json));
+        document.getElementById("demo").innerHTML = "Xin chào";
+}
+
+
+</script>
