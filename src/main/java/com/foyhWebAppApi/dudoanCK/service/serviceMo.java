@@ -20,7 +20,7 @@ public class serviceMo {
         JSONParser parser = new JSONParser();
         Object obj = null;
         try {
-            obj = parser.parse(new FileReader("src/main/java/me/loda/springsecurityhibernatejwt/dudoanCK/data_C.json"));
+            obj = parser.parse(new FileReader("src/main/java/com/foyhWebAppApi/dudoanCK/data_C.json"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -451,7 +451,7 @@ public class serviceMo {
         try {
 
             // Constructs a FileWriter given a file name, using the platform's default charset
-            file = new FileWriter("src/main/java/me/loda/springsecurityhibernatejwt/dudoanCK/data_C.json");
+            file = new FileWriter("src/main/java/com/foyhWebAppApi/dudoanCK/data_C.json");
             file.write(ob.toJSONString());
 //            CrunchifyLog("Successfully Copied JSON Object to File...");
         } catch (IOException e) {
