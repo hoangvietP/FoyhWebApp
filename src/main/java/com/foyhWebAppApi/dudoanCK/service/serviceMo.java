@@ -383,71 +383,71 @@ public class serviceMo {
         rtdt.add(dtop3);
         return  rtdt;
     }
-//    public void SetJsondt(thisMo mo1,thisMo mo2,thisMo mo3,thisMo mo4){
-//
-//        JSONArray day = new JSONArray();
-//        for (int i=0;i<=40;i++){
-//            JSONArray rr = new JSONArray();
-//            rr.add("bh1");
-//            rr.add("bh2");
-//            day.add(rr);
-//        }
-//
-//
-//        JSONArray ar1 = new JSONArray();
-//        ar1.add(mo1.getWRT()[0]);
-//        ar1.add(mo1.getWRT()[1]);
-//        JSONArray ar = new JSONArray();
-//        ar.add(mo1.getNameM());
-//        ar.add(mo1.getLongMonth());
-//        ar.add(mo1.getLongDT());
-//        ar.add(ar1);
-//        ar.add(day);
-//
-//        JSONArray ar12 = new JSONArray();
-//        ar12.add(mo2.getWRT()[0]);
-//        ar12.add(mo2.getWRT()[1]);
-//        JSONArray ar11 = new JSONArray();
-//        ar11.add(mo2.getNameM());
-//        ar11.add(mo2.getLongMonth());
-//        ar11.add(mo2.getLongDT());
-//        ar11.add(ar12);
-//        ar11.add(day);
-//
-//
-//
-//        JSONArray ar13 = new JSONArray();
-//        ar13.add(mo3.getWRT()[0]);
-//        ar13.add(mo3.getWRT()[1]);
-//        JSONArray ar22 = new JSONArray();
-//        ar22.add(mo3.getNameM());
-//        ar22.add(mo3.getLongMonth());
-//        ar22.add(mo3.getLongDT());
-//        ar22.add(ar13);
-//        ar22.add(day);
-//
-//
-//        JSONArray ar14 = new JSONArray();
-//        ar14.add(mo4.getWRT()[0]);
-//        ar14.add(mo4.getWRT()[1]);
-//        JSONArray ar33 = new JSONArray();
-//        ar33.add(mo4.getNameM());
-//        ar33.add(mo4.getLongMonth());
-//        ar33.add(mo4.getLongDT());
-//        ar33.add(ar14);
-//        ar33.add(day);
-//
-//
-//
-//        JSONArray dataUS= new JSONArray();
-//        dataUS.add(ar);
-//        dataUS.add(ar11);
-//        dataUS.add(ar22);
-//        dataUS.add(ar33);
-//
-//
-//        JSONObject ob = new JSONObject();
-//        ob.put("dataUser", dataUS);
+    public JSONObject SetJsondt(thisMo mo1,thisMo mo2,thisMo mo3,thisMo mo4){
+
+        JSONArray day = new JSONArray();
+        for (int i=0;i<=40;i++){
+            JSONArray rr = new JSONArray();
+            rr.add("bh1");
+            rr.add("bh2");
+            day.add(rr);
+        }
+
+
+        JSONArray ar1 = new JSONArray();
+        ar1.add(mo1.getWRT()[0]);
+        ar1.add(mo1.getWRT()[1]);
+        JSONArray ar = new JSONArray();
+        ar.add(mo1.getNameM());
+        ar.add(mo1.getLongMonth());
+        ar.add(mo1.getLongDT());
+        ar.add(ar1);
+        ar.add(day);
+
+        JSONArray ar12 = new JSONArray();
+        ar12.add(mo2.getWRT()[0]);
+        ar12.add(mo2.getWRT()[1]);
+        JSONArray ar11 = new JSONArray();
+        ar11.add(mo2.getNameM());
+        ar11.add(mo2.getLongMonth());
+        ar11.add(mo2.getLongDT());
+        ar11.add(ar12);
+        ar11.add(day);
+
+
+
+        JSONArray ar13 = new JSONArray();
+        ar13.add(mo3.getWRT()[0]);
+        ar13.add(mo3.getWRT()[1]);
+        JSONArray ar22 = new JSONArray();
+        ar22.add(mo3.getNameM());
+        ar22.add(mo3.getLongMonth());
+        ar22.add(mo3.getLongDT());
+        ar22.add(ar13);
+        ar22.add(day);
+
+
+        JSONArray ar14 = new JSONArray();
+        ar14.add(mo4.getWRT()[0]);
+        ar14.add(mo4.getWRT()[1]);
+        JSONArray ar33 = new JSONArray();
+        ar33.add(mo4.getNameM());
+        ar33.add(mo4.getLongMonth());
+        ar33.add(mo4.getLongDT());
+        ar33.add(ar14);
+        ar33.add(day);
+
+
+
+        JSONArray dataUS= new JSONArray();
+        dataUS.add(ar);
+        dataUS.add(ar11);
+        dataUS.add(ar22);
+        dataUS.add(ar33);
+
+
+        JSONObject ob = new JSONObject();
+        ob.put("dataUser", dataUS);
 //        try {
 //
 //            // Constructs a FileWriter given a file name, using the platform's default charset
@@ -468,5 +468,7 @@ public class serviceMo {
 //                System.out.println("add data in data_method");
 //            }
 //        }
-//    }
+
+        return ob;
+    }
 }

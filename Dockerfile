@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/user-mysql.jar user-mysql.jar
+ADD target/foyh-webapp-api.jar foyh-webapp-api.jar
 EXPOSE 8081
-ENTRYPOINT ["java","-jar","user-mysql.jar"]
+ENTRYPOINT ["java","-jar","foyh-webapp-api.jar"]
