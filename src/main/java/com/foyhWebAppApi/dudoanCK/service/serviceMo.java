@@ -358,6 +358,7 @@ public class serviceMo {
             }
         }
         //dtop3
+
         int top2 = 0;
         while (top2<=2) {
             int maxS = 0;
