@@ -35,7 +35,6 @@ public class LodaRestController {
     @PostMapping("/login")
     public LoginResponse authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         // Xác thực từ username và password.
-        System.out.println("mhvm"+loginRequest.getUsername());
         Authentication authentication;
         try{
          authentication = authenticationManager.authenticate(
