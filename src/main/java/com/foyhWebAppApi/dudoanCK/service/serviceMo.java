@@ -33,7 +33,6 @@ public class serviceMo {
         JSONObject jsonObject = obj;
         JSONArray dataUser= (JSONArray) jsonObject.get("dataUser");
         for (int i=0;i<=dataUser.size()-1;i++){
-
             //get and set data to thisMo
             JSONArray arrM= (JSONArray) dataUser.get(i);
             JSONArray rt = (JSONArray) arrM.get(3);
@@ -358,7 +357,7 @@ public class serviceMo {
                 }
             }
         }
-        //dtop2
+        //dtop3
         int top2 = 0;
         while (top2<=2) {
             int maxS = 0;
@@ -388,12 +387,11 @@ public class serviceMo {
         JSONArray day = new JSONArray();
         for (int i=0;i<=40;i++){
             JSONArray rr = new JSONArray();
-            rr.add("bh1");
-            rr.add("bh2");
+            rr.add(1);
+            rr.add(2);
+            rr.add(3);
             day.add(rr);
         }
-
-
         JSONArray ar1 = new JSONArray();
         ar1.add(mo1.getWRT()[0]);
         ar1.add(mo1.getWRT()[1]);
@@ -403,7 +401,6 @@ public class serviceMo {
         ar.add(mo1.getLongDT());
         ar.add(ar1);
         ar.add(day);
-
         JSONArray ar12 = new JSONArray();
         ar12.add(mo2.getWRT()[0]);
         ar12.add(mo2.getWRT()[1]);
@@ -413,9 +410,6 @@ public class serviceMo {
         ar11.add(mo2.getLongDT());
         ar11.add(ar12);
         ar11.add(day);
-
-
-
         JSONArray ar13 = new JSONArray();
         ar13.add(mo3.getWRT()[0]);
         ar13.add(mo3.getWRT()[1]);
@@ -425,8 +419,6 @@ public class serviceMo {
         ar22.add(mo3.getLongDT());
         ar22.add(ar13);
         ar22.add(day);
-
-
         JSONArray ar14 = new JSONArray();
         ar14.add(mo4.getWRT()[0]);
         ar14.add(mo4.getWRT()[1]);
@@ -436,16 +428,11 @@ public class serviceMo {
         ar33.add(mo4.getLongDT());
         ar33.add(ar14);
         ar33.add(day);
-
-
-
         JSONArray dataUS= new JSONArray();
         dataUS.add(ar);
         dataUS.add(ar11);
         dataUS.add(ar22);
         dataUS.add(ar33);
-
-
         JSONObject ob = new JSONObject();
         ob.put("dataUser", dataUS);
 //        try {
@@ -468,7 +455,6 @@ public class serviceMo {
 //                System.out.println("add data in data_method");
 //            }
 //        }
-
         return ob;
     }
 }

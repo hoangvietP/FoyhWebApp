@@ -1,6 +1,9 @@
 package com.foyhWebAppApi.dudoanCK.model;
 
+import lombok.Data;
+
 import java.util.Arrays;
+
 
 public class Month {
     private int nameM;
