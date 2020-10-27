@@ -362,7 +362,7 @@ public class serviceMo {
         int top2 = 0;
         while (top2<=2) {
             int maxS = 0;
-            for (int i = 0; i <= s1.size() - 1; i++) {
+            for (int i = 0; i <= s3.size() - 1; i++) {
                 if (s3.get(i) > maxS) {
                     maxS = s3.get(i);
                     dtop3[top2] = day3.get(i);
@@ -393,6 +393,7 @@ public class serviceMo {
             rr.add(3);
             day.add(rr);
         }
+
         JSONArray ar1 = new JSONArray();
         ar1.add(mo1.getWRT()[0]);
         ar1.add(mo1.getWRT()[1]);
@@ -420,6 +421,7 @@ public class serviceMo {
         ar22.add(mo3.getLongDT());
         ar22.add(ar13);
         ar22.add(day);
+
         JSONArray ar14 = new JSONArray();
         ar14.add(mo4.getWRT()[0]);
         ar14.add(mo4.getWRT()[1]);
@@ -429,6 +431,7 @@ public class serviceMo {
         ar33.add(mo4.getLongDT());
         ar33.add(ar14);
         ar33.add(day);
+
         JSONArray dataUS= new JSONArray();
         dataUS.add(ar);
         dataUS.add(ar11);
@@ -455,7 +458,8 @@ public class serviceMo {
 //                e.printStackTrace();
 //                System.out.println("add data in data_method");
 //            }
-//        }
+//        }sou
+        System.out.println(ob);
         return ob;
     }
 }
