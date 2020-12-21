@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import net.sf.json.JSON;
+import org.json.simple.JSONObject;
 
 
 @Entity
@@ -21,4 +23,12 @@ public class UserDAO {
     @Column(nullable = false, unique = true)
     private String username;
     private String password;
+    private String fullname;
+    private String birthday;
+    private String dataday;
+    private String bhrt;
+    private String bhdt;
+
+
+
 }

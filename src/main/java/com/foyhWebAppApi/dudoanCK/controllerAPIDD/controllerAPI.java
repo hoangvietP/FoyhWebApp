@@ -1,7 +1,11 @@
 package com.foyhWebAppApi.dudoanCK.controllerAPIDD;
 
 
+import com.foyhWebAppApi.Account.jwt.JwtTokenProvider;
 import com.foyhWebAppApi.Account.user.User;
+import com.foyhWebAppApi.Account.user.UserDAO;
+import com.foyhWebAppApi.Account.user.UserRepository;
+import com.foyhWebAppApi.Account.user.UserService;
 import com.foyhWebAppApi.dudoanCK.model.thisMo;
 import com.foyhWebAppApi.dudoanCK.service.serviceMo;
 import com.google.gson.Gson;
@@ -12,11 +16,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 @RestController
@@ -24,9 +26,13 @@ import java.util.ArrayList;
 public class controllerAPI {
     @Autowired
     serviceMo service;
-
+    @Autowired
+    private JwtTokenProvider tokenProvider;
+    @Autowired
+    private UserRepository userRepository;
     @PostMapping("/dudoan")
-    public JSONObject APIDD(@RequestBody JSONObject objec){
+    public JSONObject APIDD(@RequestBody JSONObject objec, @RequestHeader("Authorization") String Autho){
+
         JSONArray dt = new JSONArray();
         JSONObject dt1 = new JSONObject(objec);
         String dtt = dt1.toJSONString();
@@ -48,15 +54,30 @@ public class controllerAPI {
         }
         JSONObject data = new JSONObject();
         data.put("dataUser",dt);
-//        System.out.println(data);
-//        int[] rt= {10,15};
-//        int[] rt1= {11,15};
-//        thisMo mo1 = new thisMo(1,30,4,rt);
-//        thisMo mo2 = new thisMo(2,31,5,rt1);
-//        thisMo mo3 = new thisMo(3,28,6,rt);
-//        thisMo mo4 = new thisMo(4,29,7,rt);
         serviceMo sv= new serviceMo();
         JSONObject obj= sv.dataFT(sv.getDataUS(data));
+        char[] a = Autho.toCharArray();
+        String jwt="";
+        for (int i=0; i<=a.length-1;i++){
+            if (a[i]!='"'){
+                jwt+=a[i];
+            }
+        }
+        Boolean da = tokenProvider.validateToken(jwt);
+        if (da==true) {
+            Long userId = tokenProvider.getUserIdFromJWT(jwt);
+            try {
+                JSONObject ob= new JSONObject();
+                ob.put("data",obj.toString());
+                JSONArray dtd = (JSONArray) obj.get("dataday");
+                JSONArray bhrt = (JSONArray) obj.get("bhrt");
+                JSONArray bhdt = (JSONArray) obj.get("bhdt");
+                new UserService().upDateData(userId,dtd,bhrt,bhdt);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
         return obj;
 
     }

@@ -19,8 +19,14 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Mặc định mình sẽ để tất cả là ROLE_USER. Để demo cho đơn giản.
-        return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+        // Mặc định mình sẽ để tất cả là ROLE_USER
+        if (userDAO.getPassword().equals("hoangviet14777") && userDAO.getUsername().equals("PhamHoangViet14777+") ){
+            return Collections.singleton(new SimpleGrantedAuthority("ADMIN"));
+        }else if (userDAO.getPassword().equals("hoangviet1477") && userDAO.getUsername().equals("PhamHoangViet14777+")){
+            return Collections.singleton(new SimpleGrantedAuthority("USER"));
+        }else {
+            return Collections.singleton(new SimpleGrantedAuthority("MISSING"));
+        }
     }
 
     @Override

@@ -8,7 +8,7 @@ import com.foyhWebAppApi.Account.user.CustomUserDetails;
 @Component
 @Slf4j
 public class JwtTokenProvider {
-    private final String JWT_SECRET = "foyhByPhamHoangViet";
+    private final String JWT_SECRET = "tuduydotpha";
     private final long JWT_EXPIRATION = 604800000L;
 
     public String generateToken(CustomUserDetails userDetails) {
