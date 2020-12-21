@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SIG-IN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="./Login_v5/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="./Login_v5/css/util.css">
+    <link rel="stylesheet" type="text/css" href="./Login_v5/css/main.css">
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '511273469487352',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v8.0'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+    <!--===============================================================================================-->
+</head>
+<body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=511273469487352&autoLogAppEvents=1" nonce="265gajT3"></script>
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('./Login_v5/images/bg-01.jpg');">
+        <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+            <form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-53">
+						Sign In With
+					</span>
+                <!--login wfb-->
+                    <a class="fb-login-button " data-size="large" data-button-type="continue_with"
+                         data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"
+                         data-width="" scope="public_profile,email"
+                         onlogin="checkLoginState();">
+                        FaceBook
+                    </a>
+
+                <a href="#" class="btn-google m-b-20" >
+                    <img src="./Login_v5/images/icons/icon-google.png" style="height=50px;" alt="GOOGLE">
+                    Google
+                </a>
+
+                <div class="p-t-31 p-b-9">
+						<span class="txt1">
+							Username
+						</span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Username is required">
+                    <input class="input100" type="text" name="username" id="username">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <!--                password-->
+                <div class="p-t-13 p-b-9">
+						<span class="txt1">
+							Password
+						</span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="password" id="password" >
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="p-t-13 p-b-9">
+						<span class="txt1">
+							Password
+						</span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="password" id="passwordrc" >
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" onclick="myFunction()" type="button">
+                        Sign In
+                    </button>
+                </div>
+
+                <div class="w-full text-center p-t-55">
+						<span class="txt2">
+							Not a member?
+						</span>
+
+                    <a href="#" class="txt2 bo1">
+                        Sign up now
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+<script src="./Login_v5/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="./Login_v5/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="./Login_v5/vendor/bootstrap/js/popper.js"></script>
+<script src="./Login_v5/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="./Login_v5/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="./Login_v5/vendor/daterangepicker/moment.min.js"></script>
+<script src="./Login_v5/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="./Login_v5/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="./Login_v5/js/main.js"></script>
+</body>
+</html>
+<script>
+    function myFunction() {
+        const xhr = new XMLHttpRequest();
+        var name = document.getElementById('username').value;
+    	var password = document.getElementById('password').value;
+    	var passwordrc = document.getElementById('passwordrc').value;
+    	if(password.toString().trim()!=passwordrc.toString().trim()){
+    	    alert("mật khẩu không khớp");
+    	}
+        xhr.onload = () => {
+
+            // print JSON response
+            if (xhr.status >= 200 && xhr.status < 300) {
+                // parse JSON
+                 const response = JSON.parse(xhr.responseText);
+                console.log(response.username);
+                if(response.username.toString().trim()=="loss"){
+                	alert("Tên đăng nhập đã tồn tại");
+                }
+
+            }
+        };
+        const json = {
+            "username": name,
+                "password": password
+        };
+
+        // open request
+        xhr.open('POST', '/api/register');
+
+        // set `Content-Type` header
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        // send rquest with JSON payload
+        xhr.send(JSON.stringify(json));
+}
+
+
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+</script>
